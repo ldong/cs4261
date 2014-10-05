@@ -17,19 +17,45 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfo-Ke-Jyb">
-                                <rect key="frame" x="277" y="116" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="85" y="103" width="36" height="30"/>
+                                <state key="normal" title="Write">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="connectTofirebase:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ams-em-udm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0L-tl-BMp">
+                                <rect key="frame" x="178" y="103" width="36" height="30"/>
+                                <state key="normal" title="Read">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="readFromFirebase:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h4G-FZ-kk7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egy-iY-4d1">
+                                <rect key="frame" x="67" y="154" width="139" height="30"/>
+                                <state key="normal" title="ViewMyProdcut">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayProducts:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="du5-Rd-jVh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="George" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ov2-MT-E3a">
+                                <rect key="frame" x="208" y="154" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="btn" destination="Pfo-Ke-Jyb" id="eEu-98-YUd"/>
+                        <outlet property="readBtn" destination="f0L-tl-BMp" id="jJ2-Rf-2Dp"/>
+                        <outlet property="usernameTextField" destination="Ov2-MT-E3a" id="5Vz-R4-LFa"/>
+                        <outlet property="viewMyProductBtn" destination="Egy-iY-4d1" id="7w9-mS-9N1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

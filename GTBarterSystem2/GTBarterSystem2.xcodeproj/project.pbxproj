@@ -19,6 +19,8 @@
 		B55CC45B19E1AD1C00F25C56 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55CC45A19E1AD1C00F25C56 /* CFNetwork.framework */; };
 		B55CC45D19E1AD2500F25C56 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55CC45C19E1AD2500F25C56 /* Security.framework */; };
 		B55CC45F19E1AD2B00F25C56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55CC45E19E1AD2B00F25C56 /* SystemConfiguration.framework */; };
+		B582420E19E1C19A00B3E447 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582420D19E1C19A00B3E447 /* User.swift */; };
+		B582421019E1C1FF00B3E447 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582420F19E1C1FF00B3E447 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B55CC45C19E1AD2500F25C56 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B55CC45E19E1AD2B00F25C56 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B55CC46019E1AD6F00F25C56 /* GTBarterSystem2-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTBarterSystem2-Bridging-Header.h"; sourceTree = "<group>"; };
+		B582420D19E1C19A00B3E447 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B582420F19E1C1FF00B3E447 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				B55CC43B19E1ACB400F25C56 /* Images.xcassets */,
 				B55CC43D19E1ACB400F25C56 /* LaunchScreen.xib */,
 				B55CC43219E1ACB400F25C56 /* Supporting Files */,
+				B582420D19E1C19A00B3E447 /* User.swift */,
+				B582420F19E1C1FF00B3E447 /* Product.swift */,
 			);
 			path = GTBarterSystem2;
 			sourceTree = "<group>";
@@ -239,7 +245,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B55CC43719E1ACB400F25C56 /* ViewController.swift in Sources */,
+				B582421019E1C1FF00B3E447 /* Product.swift in Sources */,
 				B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */,
+				B582420E19E1C19A00B3E447 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +453,7 @@
 				B55CC45019E1ACB400F25C56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B55CC45119E1ACB400F25C56 /* Build configuration list for PBXNativeTarget "GTBarterSystem2Tests" */ = {
 			isa = XCConfigurationList;
@@ -453,6 +462,7 @@
 				B55CC45319E1ACB400F25C56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
