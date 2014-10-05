@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9HK-DJ-zQV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -95,17 +96,30 @@
                     <view key="view" contentMode="scaleToFill" id="Pze-Eq-jhk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" text="" placeholder="Search, iPod, iPad, Mac, etc,." translatesAutoresizingMaskIntoConstraints="NO" id="Uol-NG-MWL">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Uol-NG-MWL" firstAttribute="leading" secondItem="Pze-Eq-jhk" secondAttribute="leadingMargin" constant="-16" id="DGc-bi-O9r"/>
+                            <constraint firstItem="Uol-NG-MWL" firstAttribute="top" secondItem="sn8-qV-Z7r" secondAttribute="bottom" id="HhH-0i-wTL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uol-NG-MWL" secondAttribute="trailing" constant="-16" id="hsa-Xy-j2e"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="n2g-iU-fno" appends="YES" id="28v-7m-yQk"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Buy" id="ppv-je-zvK">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="5qE-lD-h8T"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="WE1-UH-1ue"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Uol-NG-MWL" id="8lx-0S-rus"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dda-bV-8wq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="n2g-iU-fno">
