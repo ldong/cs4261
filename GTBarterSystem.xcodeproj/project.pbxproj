@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD5ED02B19E06ECF0029810C /* BuyPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5ED02A19E06ECF0029810C /* BuyPageController.swift */; };
+		AD5ED02D19E0ECCF0029810C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5ED02C19E0ECCF0029810C /* CustomCell.swift */; };
+		AD5ED02F19E0F0DE0029810C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5ED02E19E0F0DE0029810C /* Product.swift */; };
 		AD734D2919DF61C2003ECA45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD734D2819DF61C2003ECA45 /* AppDelegate.swift */; };
 		AD734D2B19DF61C2003ECA45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD734D2A19DF61C2003ECA45 /* ViewController.swift */; };
 		AD734D2E19DF61C2003ECA45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD734D2C19DF61C2003ECA45 /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD5ED02A19E06ECF0029810C /* BuyPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyPageController.swift; sourceTree = "<group>"; };
+		AD5ED02C19E0ECCF0029810C /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		AD5ED02E19E0F0DE0029810C /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AD734D2319DF61C1003ECA45 /* GTBarterSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTBarterSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD734D2719DF61C2003ECA45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD734D2819DF61C2003ECA45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,9 +85,12 @@
 			children = (
 				AD734D2819DF61C2003ECA45 /* AppDelegate.swift */,
 				AD734D2A19DF61C2003ECA45 /* ViewController.swift */,
+				AD5ED02C19E0ECCF0029810C /* CustomCell.swift */,
+				AD5ED02A19E06ECF0029810C /* BuyPageController.swift */,
 				AD734D2C19DF61C2003ECA45 /* Main.storyboard */,
 				AD734D2F19DF61C2003ECA45 /* Images.xcassets */,
 				AD734D3119DF61C2003ECA45 /* LaunchScreen.xib */,
+				AD5ED02E19E0F0DE0029810C /* Product.swift */,
 				AD734D2619DF61C2003ECA45 /* Supporting Files */,
 			);
 			path = GTBarterSystem;
@@ -212,7 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD5ED02B19E06ECF0029810C /* BuyPageController.swift in Sources */,
 				AD734D2B19DF61C2003ECA45 /* ViewController.swift in Sources */,
+				AD5ED02F19E0F0DE0029810C /* Product.swift in Sources */,
+				AD5ED02D19E0ECCF0029810C /* CustomCell.swift in Sources */,
 				AD734D2919DF61C2003ECA45 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +417,7 @@
 				AD734D4419DF61C2003ECA45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD734D4519DF61C2003ECA45 /* Build configuration list for PBXNativeTarget "GTBarterSystemTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +426,7 @@
 				AD734D4719DF61C2003ECA45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
