@@ -96,6 +96,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="n2g-iU-fno" appends="YES" id="28v-7m-yQk"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Buy" id="ppv-je-zvK">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="5qE-lD-h8T"/>
@@ -104,6 +108,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dda-bV-8wq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="n2g-iU-fno">
+                    <connections>
+                        <action selector="buySwipe:" destination="Uj4-sh-CWL" id="GVj-zX-2gL"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1228" y="-238"/>
         </scene>
@@ -119,6 +128,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="i4J-SA-ydI" appends="YES" id="2qJ-1s-Llt"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Sell" id="XoU-Fy-dQ3">
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="edit" id="qog-NF-Pm1"/>
@@ -127,6 +140,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Z1-V9-4c1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="i4J-SA-ydI">
+                    <connections>
+                        <action selector="SellSwipe:" destination="iLq-HY-ZMK" id="OZo-Um-Pan"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1228" y="478"/>
         </scene>

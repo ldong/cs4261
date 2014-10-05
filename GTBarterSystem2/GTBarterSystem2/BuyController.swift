@@ -20,4 +20,9 @@ class BuyController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  @IBAction func buySwipe(sender: AnyObject) {
+    println("Swiped from buy to main")
+    let mainView = self.storyboard?.instantiateViewControllerWithIdentifier("mainController") as ViewController
+    self.navigationController?.pushViewController(mainView, animated: true)
+  }
 }
