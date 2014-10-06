@@ -8,8 +8,8 @@
 
 import UIKit
 
-class BuyController: UIViewController, UISearchBarDelegate {
-
+class BuyController: UIViewController {
+  
   @IBOutlet weak var searchBar: UISearchBar!
   
     override func viewDidLoad() {

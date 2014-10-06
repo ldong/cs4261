@@ -12,12 +12,14 @@ class Product {
   
   var name: String
   var price: Int
+  var category: String
   var description: String
 
   init(name:String, price: Int, description: String) {
     self.name = name
     self.price = price
     self.description = description
+    self.category = "All"
   }
 
   func descrpiton() -> String {

@@ -21,8 +21,9 @@
 		B55CC45F19E1AD2B00F25C56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55CC45E19E1AD2B00F25C56 /* SystemConfiguration.framework */; };
 		B582420E19E1C19A00B3E447 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582420D19E1C19A00B3E447 /* User.swift */; };
 		B582421019E1C1FF00B3E447 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582420F19E1C1FF00B3E447 /* Product.swift */; };
-		B582421219E1EDDC00B3E447 /* BuyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582421119E1EDDC00B3E447 /* BuyController.swift */; };
 		B582421419E1EDE800B3E447 /* SellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582421319E1EDE800B3E447 /* SellController.swift */; };
+		B5CE090A19E1FE7200DBBE3D /* BuyTreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE090919E1FE7200DBBE3D /* BuyTreeViewController.swift */; };
+		B5CE090C19E20D5100DBBE3D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE090B19E20D5100DBBE3D /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +56,9 @@
 		B55CC46019E1AD6F00F25C56 /* GTBarterSystem2-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTBarterSystem2-Bridging-Header.h"; sourceTree = "<group>"; };
 		B582420D19E1C19A00B3E447 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B582420F19E1C1FF00B3E447 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		B582421119E1EDDC00B3E447 /* BuyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyController.swift; sourceTree = "<group>"; };
 		B582421319E1EDE800B3E447 /* SellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellController.swift; sourceTree = "<group>"; };
+		B5CE090919E1FE7200DBBE3D /* BuyTreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTreeViewController.swift; sourceTree = "<group>"; };
+		B5CE090B19E20D5100DBBE3D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +114,10 @@
 			children = (
 				B55CC43419E1ACB400F25C56 /* AppDelegate.swift */,
 				B55CC43619E1ACB400F25C56 /* ViewController.swift */,
-				B582421119E1EDDC00B3E447 /* BuyController.swift */,
 				B582421319E1EDE800B3E447 /* SellController.swift */,
 				B55CC43819E1ACB400F25C56 /* Main.storyboard */,
+				B5CE090919E1FE7200DBBE3D /* BuyTreeViewController.swift */,
+				B5CE090B19E20D5100DBBE3D /* ProductDetailViewController.swift */,
 				B55CC46019E1AD6F00F25C56 /* GTBarterSystem2-Bridging-Header.h */,
 				B55CC43B19E1ACB400F25C56 /* Images.xcassets */,
 				B55CC43D19E1ACB400F25C56 /* LaunchScreen.xib */,
@@ -250,8 +253,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B582421219E1EDDC00B3E447 /* BuyController.swift in Sources */,
 				B55CC43719E1ACB400F25C56 /* ViewController.swift in Sources */,
+				B5CE090A19E1FE7200DBBE3D /* BuyTreeViewController.swift in Sources */,
+				B5CE090C19E20D5100DBBE3D /* ProductDetailViewController.swift in Sources */,
 				B582421019E1C1FF00B3E447 /* Product.swift in Sources */,
 				B582421419E1EDE800B3E447 /* SellController.swift in Sources */,
 				B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */,
