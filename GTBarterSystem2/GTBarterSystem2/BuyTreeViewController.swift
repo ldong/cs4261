@@ -33,9 +33,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
   }
 
   override func viewDidLoad() {
-    
     super.viewDidLoad()
-    
     // Do any additional setup after loading the view.
     //      loadData()
     
@@ -51,7 +49,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
         var description = snapshot.value[index]!["description"]! as String
         var timestamp = snapshot.value[index]!["timestamp"]!
         p = Product(title: title, price: price, description: description)
-        //        println(p!.title)
+                println(p!.title)
         self.products.append(p!)
       }
     })
@@ -68,7 +66,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
       Product(title:"Table", price: 18, description: "b"),
       Product(title:"Chair", price: 19, description: "a")
     ]
-    
+
     for index in 0..<self.products.count {
       println(self.products[index].title)
     }
@@ -137,7 +135,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     if segue.identifier == "productDetail" {
-      //      let productDetailViewController = segue.destinationViewController as UIViewController
+//      let productDetailViewController = segue.destinationViewController as UIViewController
       let productDetailViewController = segue.destinationViewController as ProductDetailViewController
       
       
@@ -151,14 +149,14 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
         productDetailViewController.title = destinationTitle
       }
       
-      
-      //      productDetailViewController.productPrice.text = "10"
-      //      productDetailViewController.productTitle.text = "100"
-      //      productDetailViewController.productDescription.text = "100"
+      let indexPath = self.tableView.indexPathForSelectedRow()!
+      productDetailViewController.productPriceText = String(self.products[indexPath.row].price)
+      productDetailViewController.productTitleText = self.products[indexPath.row].title
+      productDetailViewController.productDescriptionText = self.products[indexPath.row].description
     }
   }
-  
-  
+
+
   @IBAction func SellSwipe(sender: AnyObject) {
     println("Swiped from buy to main")
     let mainView = self.storyboard?.instantiateViewControllerWithIdentifier("mainController") as ViewController

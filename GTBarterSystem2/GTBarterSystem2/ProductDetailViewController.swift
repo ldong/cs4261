@@ -15,17 +15,17 @@ class ProductDetailViewController: UIViewController {
   @IBOutlet weak var productTitle: UITextField!
   @IBOutlet weak var connectUserButton: UIButton!
   
-//  var productDescriptionText: String
-//  var productPriceText: String
-//  var productTitleText: String
+  var productDescriptionText: String = ""
+  var productPriceText: String = ""
+  var productTitleText: String = ""
 
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        productDescription.text = productDescriptionText
-//        productPrice.text = productPriceText
-//        productTitle.text = productTitleText
+        productDescription.text = productDescriptionText
+        productPrice.text = productPriceText
+        productTitle.text = productTitleText
     }
 
     override func didReceiveMemoryWarning() {

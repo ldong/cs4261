@@ -31,6 +31,7 @@ class ViewController: UIViewController {
 
   @IBAction func connectTofirebase(sender: AnyObject) {
     println("Write Called")
+    
   }
   
   @IBAction func readFromFirebase(sender: AnyObject) {
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
     println("displayProduct got called")
     var username = usernameTextField.text
     println(username)
-    var ref = Firebase(url:"https://gtbarter.firebaseio.com/users/0/george_gatech_edu")
+    var ref = Firebase(url:"https://gtbarter.firebaseio.com/products")
     ref.observeEventType(.Value, withBlock: {
       snapshot in
       println("\(snapshot.name) -> \(snapshot.value)")
