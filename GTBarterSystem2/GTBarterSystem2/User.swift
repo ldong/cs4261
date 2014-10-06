@@ -18,12 +18,12 @@ class User {
   }
 
   func addProduct(p: Product) -> [String:Product] {
-    products.updateValue(p, forKey: p.name)
+    products.updateValue(p, forKey: p.title)
     return products
   }
   
   func removeProduct(p: Product) -> [String:Product] {
-    products.removeValueForKey(p.name)
+    products.removeValueForKey(p.title)
     return products
   }
 }

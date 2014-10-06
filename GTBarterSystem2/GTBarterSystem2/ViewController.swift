@@ -31,15 +31,10 @@ class ViewController: UIViewController {
 
   @IBAction func connectTofirebase(sender: AnyObject) {
     println("Write Called")
-//    var ref = Firebase(url: "https://gtbarter.firebaseio.com/users/0/george_gatech_edu")
-//    var ref = self.myRootRef!
-//    myRootRef.setValue("Do you have data? You'll love Firebase.")
   }
   
   @IBAction func readFromFirebase(sender: AnyObject) {
     println("Read Called")
-    
-    println()
   }
   
   @IBAction func displayProducts(sender: AnyObject) {
@@ -55,16 +50,15 @@ class ViewController: UIViewController {
   
   func setupFirebase() {
     // *** STEP 1: SETUP FIREBASE
-    myRootRef = Firebase(url:"https://gtbarter.firebaseio.com/")
+//    myRootRef = Firebase(url:"https://gtbarter.firebaseio.com/")
     // *** STEP 2: RECEIVE MESSAGES FROM FIREBASE
-    myRootRef.observeEventType(.Value, withBlock: {
-      snapshot in
-      println("\(snapshot.name) -> \(snapshot.value)")
-    })
+//    myRootRef.observeEventType(.Value, withBlock: {
+//      snapshot in
+//      println("\(snapshot.name) -> \(snapshot.value)")
+//    })
   }
   
   func loadUsers(input: String) -> [User] {
-    
     return users
   }
 

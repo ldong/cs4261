@@ -10,19 +10,21 @@ import Foundation
 
 class Product {
   
-  var name: String
+  var title: String
   var price: Int
   var category: String
   var description: String
-
-  init(name:String, price: Int, description: String) {
-    self.name = name
+  var timestamp :NSDate
+  
+  init(title:String, price: Int, description: String) {
+    self.title = title
     self.price = price
     self.description = description
     self.category = "All"
+    timestamp = NSDate()
   }
 
   func descrpiton() -> String {
-    return "\(self.name) is \(price), and desc \(description)"
+    return "\(self.title) is \(price), and desc \(description)"
   }
 }
