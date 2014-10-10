@@ -19,6 +19,7 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    connectToThanhsServer()
     // Do any additional setup after loading the view, typically from a nib.
     setupFirebase()
   }
@@ -28,15 +29,19 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-
-  @IBAction func connectTofirebase(sender: AnyObject) {
-    println("Write Called")
-    
-  }
-  
-  @IBAction func readFromFirebase(sender: AnyObject) {
-    println("Read Called")
-  }
+    func connectToThanhsServer(){
+        println("in 1")
+        let url = NSURL(string: "http://myrestservice")
+        let theRequest = NSURLRequest(URL: url!)
+        
+        NSURLConnection.sendAsynchronousRequest(theRequest, queue: nil, completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            if data.length > 0 && error == nil {
+                let response : AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil)
+                println(response)
+            }
+        })
+        
+          }
   
   @IBAction func displayProducts(sender: AnyObject) {
     println("displayProduct got called")
