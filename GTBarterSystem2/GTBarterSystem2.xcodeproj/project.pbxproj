@@ -24,8 +24,11 @@
 		B582421419E1EDE800B3E447 /* SellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582421319E1EDE800B3E447 /* SellController.swift */; };
 		B5CE090A19E1FE7200DBBE3D /* BuyTreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE090919E1FE7200DBBE3D /* BuyTreeViewController.swift */; };
 		B5CE090C19E20D5100DBBE3D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE090B19E20D5100DBBE3D /* ProductDetailViewController.swift */; };
+		B5DAA53919F582C400FA9119 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DAA53819F582C400FA9119 /* Item.swift */; };
+		B5DAA54219F5843900FA9119 /* JSONJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F6696519F5741B008A6870 /* JSONJoy.framework */; };
+		B5DAA54419F5869700FA9119 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DAA54319F5869700FA9119 /* Items.swift */; };
+		B5DAA54619F586BC00FA9119 /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DAA54519F586BC00FA9119 /* UserStruct.swift */; };
 		B5F6695C19F56659008A6870 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F6695519F56648008A6870 /* SwiftHTTP.framework */; };
-		B5F6696C19F57425008A6870 /* JSONJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F6696519F5741B008A6870 /* JSONJoy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +120,9 @@
 		B582421319E1EDE800B3E447 /* SellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellController.swift; sourceTree = "<group>"; };
 		B5CE090919E1FE7200DBBE3D /* BuyTreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTreeViewController.swift; sourceTree = "<group>"; };
 		B5CE090B19E20D5100DBBE3D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		B5DAA53819F582C400FA9119 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B5DAA54319F5869700FA9119 /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		B5DAA54519F586BC00FA9119 /* UserStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
 		B5F6694D19F56648008A6870 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-feature-xcode-6.1/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		B5F6695D19F5741B008A6870 /* JSONJoy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSONJoy.xcodeproj; path = "JSONJoy-Swift-master/JSONJoy.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5F6696C19F57425008A6870 /* JSONJoy.framework in Frameworks */,
+				B5DAA54219F5843900FA9119 /* JSONJoy.framework in Frameworks */,
 				B5F6695C19F56659008A6870 /* SwiftHTTP.framework in Frameworks */,
 				B55CC45F19E1AD2B00F25C56 /* SystemConfiguration.framework in Frameworks */,
 				B55CC45D19E1AD2500F25C56 /* Security.framework in Frameworks */,
@@ -187,7 +193,10 @@
 				B55CC43D19E1ACB400F25C56 /* LaunchScreen.xib */,
 				B55CC43219E1ACB400F25C56 /* Supporting Files */,
 				B582420D19E1C19A00B3E447 /* User.swift */,
+				B5DAA54519F586BC00FA9119 /* UserStruct.swift */,
 				B582420F19E1C1FF00B3E447 /* Product.swift */,
+				B5DAA53819F582C400FA9119 /* Item.swift */,
+				B5DAA54319F5869700FA9119 /* Items.swift */,
 			);
 			path = GTBarterSystem2;
 			sourceTree = "<group>";
@@ -413,9 +422,12 @@
 				B5CE090A19E1FE7200DBBE3D /* BuyTreeViewController.swift in Sources */,
 				B5CE090C19E20D5100DBBE3D /* ProductDetailViewController.swift in Sources */,
 				B582421019E1C1FF00B3E447 /* Product.swift in Sources */,
+				B5DAA54419F5869700FA9119 /* Items.swift in Sources */,
+				B5DAA53919F582C400FA9119 /* Item.swift in Sources */,
 				B582421419E1EDE800B3E447 /* SellController.swift in Sources */,
 				B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */,
 				B582420E19E1C19A00B3E447 /* User.swift in Sources */,
+				B5DAA54619F586BC00FA9119 /* UserStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

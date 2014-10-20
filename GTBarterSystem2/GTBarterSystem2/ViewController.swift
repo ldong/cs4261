@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftHTTP
+import JSONJoy
 
 class ViewController: UIViewController, NSURLConnectionDelegate {
   
@@ -22,7 +23,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     connectToThanhsServer()
-    var url: String  = "http://54.86.116.203:3000/"
+    var url: String  = "http://54.86.116.203:3000/items/"
 //    url = "http://search.twitter.com/search.json?q=blue%20angels"
     getDataFrom(url, url2: url)
     // Do any additional setup after loading the view, typically from a nib.
@@ -40,6 +41,11 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
         let data = response.responseObject as NSData
         let str = NSString(data: data, encoding: NSUTF8StringEncoding)
         println("response: \(str)") //prints the HTML of the page
+        
+        let items = Items(JSONDecoder(response.responseObject!))
+        println("items count: \(items.items!.count)")
+        println("item is: \(items.items)")
+        
       }
       },failure: {(error: NSError) in
         println("error: \(error)")
