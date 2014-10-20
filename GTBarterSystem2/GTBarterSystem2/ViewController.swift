@@ -22,7 +22,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     connectToThanhsServer()
-    var url: String  = "http://vluxe.io"
+    var url: String  = "http://54.86.116.203:3000/"
     getDataFrom(url, url2: url)
     // Do any additional setup after loading the view, typically from a nib.
 //    searchFunction()
