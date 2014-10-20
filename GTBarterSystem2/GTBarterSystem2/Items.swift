@@ -11,9 +11,22 @@ import JSONJoy
 
 struct Items: JSONJoy{
   var items: Array<Item>?
+  
+  var descritpiton : String {
+    return "Hi"
+  }
+  
   init() {
   }
   init(_ decoder: JSONDecoder) {
-    decoder.array(&items)
+    println("decoder from Items============")
+//    println(decoder.array)
+//    decoder.array(&items)
+    items = Array<Item>()
+    for index in 0..<decoder.array!.count {
+      println("\(index)  \(decoder[index])")
+      items?.append(Item(decoder[index]))
+    }
   }
+
 }

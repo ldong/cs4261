@@ -43,8 +43,8 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
         println("response: \(str)") //prints the HTML of the page
         
         let items = Items(JSONDecoder(response.responseObject!))
-        println("items count: \(items.items!.count)")
-        println("item is: \(items.items)")
+//        println("items count: \(items.items!.count)")
+        println("item is: \(items.items!.count)")
         
       }
       },failure: {(error: NSError) in

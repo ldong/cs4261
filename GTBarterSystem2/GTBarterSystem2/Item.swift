@@ -21,13 +21,14 @@ struct Item: JSONJoy{
   init() {
   }
   init(_ decoder: JSONDecoder) {
+    println("===decoder from Item============")
     _id = decoder["_id"].string
-//    __v = decoder["__v"].integer
-//    price = decoder["price"].double
-//    description = decoder["description"].string
-//    created = decoder["description"].string
-//    name = decoder["description"].string
-//    user = StructUser(decoder["user"])
+    __v = decoder["__v"].integer
+    price = decoder["price"].double
+    description = decoder["description"].string
+    created = decoder["description"].string
+    name = decoder["description"].string
+    user = StructUser(decoder["user"])
   }
 }
 
