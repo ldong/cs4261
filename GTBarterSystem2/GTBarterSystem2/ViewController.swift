@@ -23,6 +23,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     super.viewDidLoad()
     connectToThanhsServer()
     var url: String  = "http://54.86.116.203:3000/"
+//    url = "http://search.twitter.com/search.json?q=blue%20angels"
     getDataFrom(url, url2: url)
     // Do any additional setup after loading the view, typically from a nib.
 //    searchFunction()
@@ -33,6 +34,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   func getDataFrom(url: String, url2: String){
     var request = HTTPTask()
     println("Made it here")
+    println("Print JSON here")
     request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
       if response.responseObject != nil {
         let data = response.responseObject as NSData
