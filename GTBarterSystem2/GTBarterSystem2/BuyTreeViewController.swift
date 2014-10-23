@@ -14,25 +14,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
   var products : [Product] = []
   var filteredProducts = [Product]()
   
-  func loadData() {
-    var p : Product?
-    var ref = Firebase(url:"https://gtbarter.firebaseio.com/users/0/ldong36/products")
-    ref.observeEventType(.Value, withBlock: {
-      snapshot in
-      for index in 0..<snapshot.value.count {
-        var title = snapshot.value[index]!["title"]! as String
-        var category = snapshot.value[index]!["category"]!
-        var price = snapshot.value[index]!["price"]! as Int
-        var description = snapshot.value[index]!["description"]! as String
-        var timestamp = snapshot.value[index]!["timestamp"]!
-        p = Product(title: title, price: price, description: description)
-        //        println(p!.title)
-        self.products.append(p!)
-      }
-    })
-  }
-
-  override func viewDidLoad() {
+   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     //      loadData()
@@ -68,7 +50,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
     ]
 
     for index in 0..<self.products.count {
-      println(self.products[index].title)
+      println(self.products)
     }
   }
   
@@ -100,6 +82,8 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
     
     // Configure the cell
     cell.textLabel!.text = product.title
+    println(product.title)
+    println(cell)
     cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     
     return cell
