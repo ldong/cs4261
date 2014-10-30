@@ -26,7 +26,9 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
 //    connectToThanhsServer()
     var url: String  = "http://54.86.116.203:3000/items/"
 //    url = "http://search.twitter.com/search.json?q=blue%20angels"
-    getDataFrom(url, url2: url)
+//    getDataFrom(url, url2: url)
+    
+    connectToServerAndGetCookie("admin", password: "password")
     // Do any additional setup after loading the view, typically from a nib.
 //    searchFunction()
     //startConnection()
@@ -106,6 +108,25 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     
   }
   
+  func connectToServerAndGetCookie(username: String, password: String) -> NSString {
+    var url = "http://54.86.116.203:3000/auth/signin"
+    var request = HTTPTask()
+    var parameters = ["username": username, "password": password]
+    var cookies = ""
+    request.requestSerializer = JSONRequestSerializer()
+    request.POST(url, parameters: parameters, success: {(response: HTTPResponse) in
+      if response.responseObject != nil {
+        println("Hello from getting cookies from Server")
+        let data = response.responseObject as NSData
+        let str = NSString(data: data, encoding: NSUTF8StringEncoding)
+        println(str)
+        // parse cookies here
+      }
+    },failure: {(error: NSError) in
+        println(" error \(error)")
+    })
+    return cookies
+  }
   
   func startConnection(){
     
