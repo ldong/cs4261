@@ -34,24 +34,30 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   }
   
   func getDataFrom(url: String, url2: String){
-    var request = HTTPTask()
     println("Made it here")
     println("Print JSON here")
+    println("url \(url)")
+    
+    var request = HTTPTask()
     request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
       if response.responseObject != nil {
+        
+        println("Hello from GrabData from Server")
         let data = response.responseObject as NSData
         let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-//        println("response: \(str)") //prints the HTML of the page
-        
         let items = Items(JSONDecoder(response.responseObject!))
-//        println("items count: \(items.items!.count)")
-//        println("item is: \(items.items!.count)")
+        for curr in items.items! {
+          var user = User(email: "id")
+          var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
+          self.products.append(product)
+          println(product.title)
+          println("World from GrabData from Server")
+        }
         
       }
       },failure: {(error: NSError) in
-        println("error: \(error)")
+        println(" error \(error)")
     })
-  
   }
   
   override func didReceiveMemoryWarning() {

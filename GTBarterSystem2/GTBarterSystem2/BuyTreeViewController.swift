@@ -136,7 +136,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
       }
       
       let indexPath = self.tableView.indexPathForSelectedRow()!
-      productDetailViewController.productPriceText = String(self.products[indexPath.row].price)
+      productDetailViewController.productPriceText = String(self.products[indexPath.row].title)
       productDetailViewController.productTitleText = self.products[indexPath.row].title
       productDetailViewController.productDescriptionText = self.products[indexPath.row].description
     }
