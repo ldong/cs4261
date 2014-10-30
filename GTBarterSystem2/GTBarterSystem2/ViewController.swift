@@ -19,10 +19,11 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   var myRootRef: Firebase!
   var users : [User] = [User]()
   lazy var data = NSMutableData()
+  var products : [Product] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    connectToThanhsServer()
+//    connectToThanhsServer()
     var url: String  = "http://54.86.116.203:3000/items/"
 //    url = "http://search.twitter.com/search.json?q=blue%20angels"
     getDataFrom(url, url2: url)
@@ -40,11 +41,11 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
       if response.responseObject != nil {
         let data = response.responseObject as NSData
         let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-        println("response: \(str)") //prints the HTML of the page
+//        println("response: \(str)") //prints the HTML of the page
         
         let items = Items(JSONDecoder(response.responseObject!))
 //        println("items count: \(items.items!.count)")
-        println("item is: \(items.items!.count)")
+//        println("item is: \(items.items!.count)")
         
       }
       },failure: {(error: NSError) in
@@ -85,6 +86,14 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    if (segue.identifier == "segueTest") {
+      println("grabed data and now passing \(products)")
+      var svc = segue.destinationViewController as BuyTreeViewController
+      svc.products =  products
+      
+    }
+  }
   
   
   func startConnection(){
@@ -99,7 +108,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
       var newdata : NSArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
       
       var name: String? = newdata[0].valueForKey("name") as? NSString
-      println(name)
+//      println(name)
     });
     task.resume()
   }

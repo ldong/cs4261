@@ -20,6 +20,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
     //      loadData()
     
     // Do this
+    /*
     var p : Product?
     var ref = Firebase(url:"https://gtbarter.firebaseio.com/users/0/ldong36/products")
     ref.observeEventType(.Value, withBlock: {
@@ -35,7 +36,8 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
         self.products.append(p!)
       }
     })
-
+    */
+    
     // wait until its done do this
     self.products += [
       Product(title:"Chocolate", price: 11, description: "i"),
@@ -50,7 +52,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
     ]
 
     for index in 0..<self.products.count {
-      println(self.products)
+//      println(self.products)
     }
   }
   
@@ -83,7 +85,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
     // Configure the cell
     cell.textLabel!.text = product.title
     println(product.title)
-    println(cell)
+//    println(cell)
     cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     
     return cell

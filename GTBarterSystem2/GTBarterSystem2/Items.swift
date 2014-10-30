@@ -24,7 +24,7 @@ struct Items: JSONJoy{
 //    decoder.array(&items)
     items = Array<Item>()
     for index in 0..<decoder.array!.count {
-      println("\(index)  \(decoder[index])")
+//      println("\(index)  \(decoder[index])")
       items?.append(Item(decoder[index]))
     }
   }
