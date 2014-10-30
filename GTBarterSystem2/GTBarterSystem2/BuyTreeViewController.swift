@@ -37,7 +37,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
       }
     })
     */
-    
+    println()
     // wait until its done do this
     self.products += [
       Product(title:"Chocolate", price: 11, description: "i"),

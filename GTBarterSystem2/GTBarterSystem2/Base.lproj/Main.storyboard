@@ -57,7 +57,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3c1-RQ-csv" kind="show" identifier="" id="BEp-YJ-f4y"/>
+                                    <segue destination="3c1-RQ-csv" kind="show" identifier="segueTest" id="BEp-YJ-f4y"/>
                                 </connections>
                             </button>
                         </subviews>

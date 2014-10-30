@@ -93,12 +93,17 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    println("PrepareForSegue run")
+
     if (segue.identifier == "segueTest") {
       println("grabed data and now passing \(products)")
+      println("PrepareForSegue run, if statement")
       var svc = segue.destinationViewController as BuyTreeViewController
       svc.products =  products
-      
+    } else {
+      println("PrepareForSegue run, else statement")
     }
+    
   }
   
   
