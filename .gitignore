@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # mac ignore
+=======
+>>>>>>> c56d8acfaa78011fe2b17398fbf0dc8e933f0e0d
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -15,6 +18,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+<<<<<<< HEAD
 
 # Xcode
 #
@@ -42,3 +46,6 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 # Pods/
+=======
+*.swp
+>>>>>>> c56d8acfaa78011fe2b17398fbf0dc8e933f0e0d

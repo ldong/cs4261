@@ -12,13 +12,12 @@ public class Product {
     
     var title = "";
     var description = "";
-    var price:Double = 0;
+  
     
-    init(title:String, description:String, price:Double)
+    init(title:String, description:String)
     {
         self.title = title
         self.description = description
-        self.price = price
     }
         
     
