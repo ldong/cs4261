@@ -20,26 +20,29 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   var users : [User] = [User]()
   lazy var data = NSMutableData()
   var products : [Product] = []
+    
+    @IBOutlet var testID: UILabel!
+    
+    var __v:AnyObject?
+    var _id: AnyObject?
+    var created:AnyObject?
+    var displayName:AnyObject?
+    var email:AnyObject?
+    var firstName:AnyObject?
+    var lastName:AnyObject?
+    var provider:AnyObject?
+    
+    
+    var trash:String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
-//    connectToThanhsServer()
-    var url: String  = "http://54.86.116.203:3000/items/"
-//    url = "http://search.twitter.com/search.json?q=blue%20angels"
-//    getDataFrom(url, url2: url)
-    
-    connectToServerAndGetCookie("admin", password: "password")
-    // Do any additional setup after loading the view, typically from a nib.
-//    searchFunction()
-    //startConnection()
-    // setupFirebase()
+     println("~~~~~~~~~~~~~~~~~~~~~~~~~viewcontroller v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
+    println("~~~~~~~~ \(self.trash)")
+    testID.text = self._id as String!
   }
   
   func getDataFrom(url: String, url2: String){
-    println("Made it here")
-    println("Print JSON here")
-    println("url \(url)")
-    
     var request = HTTPTask()
     request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
       if response.responseObject != nil {
@@ -107,27 +110,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     }
     
   }
-  
-  func connectToServerAndGetCookie(username: String, password: String) -> NSString {
-    var url = "http://54.86.116.203:3000/auth/signin"
-    var request = HTTPTask()
-    var parameters = ["username": username, "password": password]
-    var cookies = ""
-    request.requestSerializer = JSONRequestSerializer()
-    request.POST(url, parameters: parameters, success: {(response: HTTPResponse) in
-      if response.responseObject != nil {
-        println("Hello from getting cookies from Server")
-        let data = response.responseObject as NSData
-        let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-        println(str)
-        // parse cookies here
-      }
-    },failure: {(error: NSError) in
-        println(" error \(error)")
-    })
-    return cookies
-  }
-  
+   
   func startConnection(){
     
     var url : String = "http://54.86.116.203:3000/items"
@@ -171,8 +154,8 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   
   @IBAction func displayProducts(sender: AnyObject) {
     println("displayProduct got called")
-    var username = usernameTextField.text
-    println(username)
+  //  var username = usernameTextField.text
+  //  println(username)
     var ref = Firebase(url:"https://gtbarter.firebaseio.com/products")
     ref.observeEventType(.Value, withBlock: {
       snapshot in

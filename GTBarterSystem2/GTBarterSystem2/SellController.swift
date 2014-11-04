@@ -22,7 +22,7 @@ class SellController: UIViewController, UIPickerViewDelegate {
         categoryPicker.delegate = self
 //        categoryPicker.dataSource = self
         
-            elements = ["One","Two","Three","Five","Six","Seven","Eight","Nine","Ten"]
+            elements = ["Electronics","Fashion","Entertainment","Sporting Goods","Motors","Home and Kitchen","Other"]
        
         // Do any additional setup after loading the view.
     }
