@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD05A5DB1A0ED902004C81B2 /* btn_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */; };
 		AD713EA71A0294BB0046B257 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD713EA61A0294BB0046B257 /* LoginPageViewController.swift */; };
 		B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55CC43419E1ACB400F25C56 /* AppDelegate.swift */; };
 		B55CC43719E1ACB400F25C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55CC43619E1ACB400F25C56 /* ViewController.swift */; };
@@ -99,6 +100,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = btn_background.jpeg; sourceTree = "<group>"; };
 		AD713EA61A0294BB0046B257 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		B55CC42F19E1ACB400F25C56 /* GTBarterSystem2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTBarterSystem2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B55CC43319E1ACB400F25C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				B582420F19E1C1FF00B3E447 /* Product.swift */,
 				B5DAA53819F582C400FA9119 /* Item.swift */,
 				B5DAA54319F5869700FA9119 /* Items.swift */,
+				AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */,
 			);
 			path = GTBarterSystem2;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			files = (
 				B55CC43A19E1ACB400F25C56 /* Main.storyboard in Resources */,
 				B55CC43F19E1ACB400F25C56 /* LaunchScreen.xib in Resources */,
+				AD05A5DB1A0ED902004C81B2 /* btn_background.jpeg in Resources */,
 				B55CC43C19E1ACB400F25C56 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,6 +40,8 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
      println("~~~~~~~~~~~~~~~~~~~~~~~~~viewcontroller v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
     println("~~~~~~~~ \(self.trash)")
     testID.text = self._id as String!
+    //startConnection();
+    
   }
   
   func getDataFrom(url: String, url2: String){
@@ -138,20 +140,20 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     println(jsonResult)
   }
   
-  func connectToThanhsServer(){
-    println("in 1")
-    let url = NSURL(string: "")
-    let theRequest = NSURLRequest(URL: url!)
-    
-    NSURLConnection.sendAsynchronousRequest(theRequest, queue: nil, completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-      if data.length > 0 && error == nil {
-        let response : AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil)
-        println(response)
-      }
-    })
-    
-  }
-  
+//  func connectToThanhsServer(){
+//    println("in 1")
+//    let url = NSURL(string: "")
+//    let theRequest = NSURLRequest(URL: url!)
+//    
+//    NSURLConnection.sendAsynchronousRequest(theRequest, queue: nil, completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+//      if data.length > 0 && error == nil {
+//        let response : AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil)
+//        println(response)
+//      }
+//    })
+//    
+//  }
+//  
   @IBAction func displayProducts(sender: AnyObject) {
     println("displayProduct got called")
   //  var username = usernameTextField.text
