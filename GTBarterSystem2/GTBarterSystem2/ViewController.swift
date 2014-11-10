@@ -14,7 +14,8 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var readBtn: UIButton!
-  @IBOutlet weak var viewMyProductBtn: UIButton!
+ 
+//    @IBOutlet weak var viewMyProductsBtn: UIButton!
   @IBOutlet weak var btn: UIButton!
   var myRootRef: Firebase!
   var users : [User] = [User]()
@@ -34,17 +35,19 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     
     
     var trash:String = ""
+    
   
   override func viewDidLoad() {
     super.viewDidLoad()
      println("~~~~~~~~~~~~~~~~~~~~~~~~~viewcontroller v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
     println("~~~~~~~~ \(self.trash)")
     testID.text = self._id as String!
+    getDataFrom("http://54.86.116.203:3000/items")
     //startConnection();
     
   }
   
-  func getDataFrom(url: String, url2: String){
+  func getDataFrom(url: String){
     var request = HTTPTask()
     request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
       if response.responseObject != nil {
@@ -72,33 +75,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     // Dispose of any resources that can be recreated.
   }
   
-  func searchFunction() {
-    var url : NSURL = NSURL(string: "https://itunes.apple.com/search?term=&media=software")!
-    var request: NSURLRequest = NSURLRequest(URL:url)
-    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-    let session = NSURLSession(configuration: config)
-    
-    let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
-      
-      var newdata : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
-      
-      var info : NSArray =  newdata.valueForKey("results") as NSArray
-      
-      var name: String? = info.valueForKey("trackName") as? String // Returns nil
-      println(name)//Returns nil
-      
-      
-      var name2 : NSString = info.valueForKey("trackName") as NSString //Crashes
-      println(name2) //Crashes
-      
-    });
-    
-    
-    task.resume()
-    println("Resumed")
-    
-  }
-  
+   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     println("PrepareForSegue run")
 
@@ -107,7 +84,14 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
       println("PrepareForSegue run, if statement")
       var svc = segue.destinationViewController as BuyTreeViewController
       svc.products =  products
-    } else {
+    }
+    
+    if (segue.identifier == "myProductsSegue") {
+        println("my products :)")
+        var svc = segue.destinationViewController as MyProductsTableViewController
+            svc.userId = self._id
+    }
+    else {
       println("PrepareForSegue run, else statement")
     }
     
@@ -154,16 +138,9 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
 //    
 //  }
 //  
-  @IBAction func displayProducts(sender: AnyObject) {
-    println("displayProduct got called")
-  //  var username = usernameTextField.text
-  //  println(username)
-    var ref = Firebase(url:"https://gtbarter.firebaseio.com/products")
-    ref.observeEventType(.Value, withBlock: {
-      snapshot in
-      println("\(snapshot.name) -> \(snapshot.value)")
-    })
-  }
+
+//    @IBAction func viewMyProductsBtnClicked(sender: AnyObject) {
+//   btn }
   
   func setupFirebase() {
     // *** STEP 1: SETUP FIREBASE

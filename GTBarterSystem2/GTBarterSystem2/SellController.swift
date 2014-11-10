@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftHTTP
+import JSONJoy
 
 class SellController: UIViewController, UIPickerViewDelegate {
 
@@ -57,7 +59,69 @@ class SellController: UIViewController, UIPickerViewDelegate {
     @IBAction func postBtnClick(sender: AnyObject) {
       var test =  testPrice(priceText.text)
         println(test)
+        println("about to execture post")
+        var posted = post("http://54.86.116.203:3000/items", finished: (result: Bool) -> Void in {
+            println("result is: \(result)")
+            //do more stuff now that I know the result
+            })
+        
+        if(posted && test){
+            transition()
+        }
     }
+    
+    func transition() {
+        println("got into transition")
+        let secondViewController:MyProductsTableViewController = MyProductsTableViewController()
+        
+        self.presentViewController(secondViewController, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    
+    
+    func post(url:String, {(finished:Bool) -> Bool in
+      //  var url = "http://example"
+        var request = HTTPTask()
+        var parameters = ["description":descriptionText.text, "name": titleText.text, "price":priceText.text]
+        request.requestSerializer = JSONRequestSerializer()
+        request.POST(url, parameters: parameters,
+            success: {
+                (response: HTTPResponse) in
+                if response.responseObject != nil {
+                    finished(true)
+                },
+            }, failure: {(error: NSError) in
+                println(" error \(error)")
+                finished(false)
+        })
+    })
+    
+    
+    
+    
+    
+    func getDataFrom(url: String) -> Bool{
+        var request = HTTPTask()
+        var ret:Bool = true
+        
+        var paramaters = ["description":descriptionText.text, "name": titleText.text, "price":priceText.text]
+        request.POST(url, parameters: paramaters, success: {(response: HTTPResponse) in
+            if response.responseObject != nil {
+               println("success")
+                ret = true
+                
+            }
+            },failure: {(error: NSError) in
+                println(" error \(error)")
+                ret = false
+        })
+        return ret
+    }
+
     
     
     func testPrice(priceText:String) -> Bool {

@@ -16,14 +16,14 @@ class LoginPageViewController: UIViewController {
     @IBOutlet weak var tfUserId: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     
-    var __v:AnyObject?
-    var _id:AnyObject?
-    var created:AnyObject?
-    var displayName:AnyObject?
-    var email:AnyObject?
-    var firstName:AnyObject?
-    var lastName:AnyObject?
-    var provider:AnyObject?
+    var __v:AnyObject!
+    var _id:AnyObject!
+    var created:AnyObject!
+    var displayName:AnyObject!
+    var email:AnyObject!
+    var firstName:AnyObject!
+    var lastName:AnyObject!
+    var provider:AnyObject!
     
     
     var proceed: Bool = false
@@ -84,6 +84,7 @@ class LoginPageViewController: UIViewController {
             
         }
         else{
+            
             connectToServerAndGetCookie(tfUserId.text, password: tfPassword.text)
             
         }
