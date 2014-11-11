@@ -42,34 +42,69 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
      println("~~~~~~~~~~~~~~~~~~~~~~~~~viewcontroller v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
     println("~~~~~~~~ \(self.trash)")
     testID.text = self._id as String!
-    getDataFrom("http://54.86.116.203:3000/items")
+    getDataFrom("http://54.86.116.203:3000/items", ret: { (result:Bool) -> (Void) in
+        println("buy button is:  \(result) ")
+        dispatch_async(dispatch_get_main_queue()) {
+            
+        }
+        
+    })
+
     //startConnection();
     
   }
-  
-  func getDataFrom(url: String){
-    var request = HTTPTask()
-    request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
-      if response.responseObject != nil {
-        
-        println("Hello from GrabData from Server")
-        let data = response.responseObject as NSData
-        let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-        let items = Items(JSONDecoder(response.responseObject!))
-        for curr in items.items! {
-          var user = User(email: "id")
-          var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
-          self.products.append(product)
-          println(product.title)
-          println("World from GrabData from Server")
-        }
-        
-      }
-      },failure: {(error: NSError) in
-        println(" error \(error)")
-    })
-  }
-  
+    
+    
+    func getDataFrom(url: String, ret: (Bool) -> (Void)) -> Void{
+        var request = HTTPTask()
+        request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
+            if response.responseObject != nil {
+                
+                let data = response.responseObject as NSData
+                let str = NSString(data: data, encoding: NSUTF8StringEncoding)
+                let items = Items(JSONDecoder(response.responseObject!))
+                for curr in items.items! {
+                    var user = User(email: "id")
+                    println("_id: \(curr._id), __v: \(curr.__v), price: \(curr.price), created: \(curr.created), title: \(curr.name), description: \(curr.description), category: category, user: \(user)")
+                    if(curr.price != nil){
+                        var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
+                        self.products.append(product)
+                    }
+                    
+                    //   println(product.title)
+                }
+                
+            }
+            },failure: {(error: NSError) in
+                println(" error \(error)")
+        })
+    }
+
+    
+//  
+//  func getDataFrom(url: String){
+//    var request = HTTPTask()
+//    request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
+//      if response.responseObject != nil {
+//        
+//        println("Hello from GrabData from Server")
+//        let data = response.responseObject as NSData
+//        let str = NSString(data: data, encoding: NSUTF8StringEncoding)
+//        let items = Items(JSONDecoder(response.responseObject!))
+//        for curr in items.items! {
+//          var user = User(email: "id")
+//          var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price?, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
+//          self.products.append(product)
+//          println(product.title)
+//          println("World from GrabData from Server")
+//        }
+//        
+//      }
+//      },failure: {(error: NSError) in
+//        println(" error \(error)")
+//    })
+//  }
+//
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

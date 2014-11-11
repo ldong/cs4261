@@ -57,17 +57,23 @@ class SellController: UIViewController, UIPickerViewDelegate {
     self.navigationController?.pushViewController(mainView, animated: true)
   }
     @IBAction func postBtnClick(sender: AnyObject) {
-      var test =  testPrice(priceText.text)
-        println(test)
-        println("about to execture post")
-        var posted = post("http://54.86.116.203:3000/items", finished: (result: Bool) -> Void in {
-            println("result is: \(result)")
-            //do more stuff now that I know the result
-            })
+      var testPriceValid =  testPrice(priceText.text)
+        getDataFrom("http://54.86.116.203:3000/items", ret: { (result:Bool) -> (Void) in
+                println("sell button is:  \(result) ")
+            if(result && testPriceValid){
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("goBackToMainFromSell", sender: self)
+            }
+            }
+        })
+      
         
-        if(posted && test){
-            transition()
-        }
+     //   var postedData = getDataFrom("http://54.86.116.203:3000/items", ret:(result:Bool) -> Void in {
+      //      println(ret)
+      //      })
+     //   if(postedData && test){
+     //       transition()
+      //  }
     }
     
     func transition() {
@@ -81,45 +87,21 @@ class SellController: UIViewController, UIPickerViewDelegate {
     
     
     
-    
-    
-    func post(url:String, {(finished:Bool) -> Bool in
-      //  var url = "http://example"
+    func getDataFrom(url: String, ret: (Bool) -> (Void)) -> Void{
         var request = HTTPTask()
-        var parameters = ["description":descriptionText.text, "name": titleText.text, "price":priceText.text]
-        request.requestSerializer = JSONRequestSerializer()
-        request.POST(url, parameters: parameters,
-            success: {
-                (response: HTTPResponse) in
-                if response.responseObject != nil {
-                    finished(true)
-                },
-            }, failure: {(error: NSError) in
-                println(" error \(error)")
-                finished(false)
-        })
-    })
-    
-    
-    
-    
-    
-    func getDataFrom(url: String) -> Bool{
-        var request = HTTPTask()
-        var ret:Bool = true
-        
+        println("\(descriptionText.text) \(titleText.text) \(priceText.text)")
         var paramaters = ["description":descriptionText.text, "name": titleText.text, "price":priceText.text]
         request.POST(url, parameters: paramaters, success: {(response: HTTPResponse) in
             if response.responseObject != nil {
                println("success")
-                ret = true
+                ret(true)
                 
             }
             },failure: {(error: NSError) in
                 println(" error \(error)")
-                ret = false
+                ret(false)
         })
-        return ret
+        //return ret
     }
 
     

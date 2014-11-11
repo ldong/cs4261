@@ -302,6 +302,7 @@
                         <outlet property="postBtn" destination="zet-n4-W45" id="J2C-0X-dla"/>
                         <outlet property="priceText" destination="bib-t0-vax" id="qdm-cZ-3i7"/>
                         <outlet property="titleText" destination="eof-Im-DbU" id="WRF-2E-3hS"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="goBackToMainFromSell" id="EgH-fV-ZV1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Z1-V9-4c1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -428,5 +429,8 @@
     <resources>
         <image name="btn_background.jpeg" width="306" height="165"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EgH-fV-ZV1"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.04306699672371312" green="0.62126358695652173" blue="0.31772591548345402" alpha="1" colorSpace="calibratedRGB"/>
 </document>
