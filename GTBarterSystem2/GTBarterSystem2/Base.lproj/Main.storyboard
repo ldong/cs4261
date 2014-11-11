@@ -135,12 +135,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XD9-tZ-gsI">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XD9-tZ-gsI">
                                 <rect key="frame" x="139" y="122" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mp5-Jl-40X">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mp5-Jl-40X">
                                 <rect key="frame" x="62" y="126" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ozS-jb-4T9"/>
@@ -149,13 +149,13 @@
                                 <color key="textColor" red="0.16443462640000001" green="0.40649314380000001" blue="0.62126358699999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sc-0n-EML">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sc-0n-EML">
                                 <rect key="frame" x="62" y="186" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.16443462640000001" green="0.40649314380000001" blue="0.62126358699999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR9-E7-3I5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR9-E7-3I5">
                                 <rect key="frame" x="62" y="237" width="93" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="OGt-hM-qfw"/>
@@ -165,7 +165,7 @@
                                 <color key="textColor" red="0.16443462640000001" green="0.40649314380000001" blue="0.62126358699999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iag-th-g3N">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iag-th-g3N">
                                 <rect key="frame" x="72" y="266" width="177" height="106"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -180,7 +180,7 @@
                                     <action selector="contactUserClicked:" destination="Hx8-qk-cHu" eventType="touchUpInside" id="Nbv-FG-g1c"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyp-f8-m3Y">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyp-f8-m3Y">
                                 <rect key="frame" x="139" y="182" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -402,8 +402,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="signInBtnClick:" destination="Qye-f3-3CY" eventType="touchUpInside" id="U51-KM-vfp"/>
-                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="loginToViewController" id="yz2-SP-P4J"/>
+                                    <action selector="signInBtnClick:" destination="Qye-f3-3CY" eventType="touchUpInside" id="XAP-Ww-wfe"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ptm-k7-pEH">
@@ -416,9 +415,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="Qfm-ju-BQk"/>
                     <connections>
-                        <outlet property="btnSignIn" destination="PqY-9w-2MF" id="nds-Yy-SB6"/>
-                        <outlet property="tfPassword" destination="ptm-k7-pEH" id="hiT-qD-jIE"/>
-                        <outlet property="tfUserId" destination="0We-rd-7GU" id="RcN-6T-GR6"/>
+                        <outlet property="btnSignIn" destination="PqY-9w-2MF" id="NVq-S5-3qR"/>
+                        <outlet property="tfPassword" destination="ptm-k7-pEH" id="1r9-fu-dx5"/>
+                        <outlet property="tfUserId" destination="0We-rd-7GU" id="GxN-Wx-zyN"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="loginToViewController" id="G7q-fB-v7R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEy-eH-aoY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -430,7 +430,7 @@
         <image name="btn_background.jpeg" width="306" height="165"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EgH-fV-ZV1"/>
+        <segue reference="G7q-fB-v7R"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.04306699672371312" green="0.62126358695652173" blue="0.31772591548345402" alpha="1" colorSpace="calibratedRGB"/>
 </document>
