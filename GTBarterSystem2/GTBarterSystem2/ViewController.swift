@@ -15,14 +15,12 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var readBtn: UIButton!
  
-//    @IBOutlet weak var viewMyProductsBtn: UIButton!
+  @IBOutlet weak var userID: UILabel!
   @IBOutlet weak var btn: UIButton!
   var myRootRef: Firebase!
   var users : [User] = [User]()
   lazy var data = NSMutableData()
   var products : [Product] = []
-    
-    @IBOutlet var testID: UILabel!
     
     var __v:AnyObject?
     var _id: AnyObject?
@@ -32,26 +30,17 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     var firstName:AnyObject?
     var lastName:AnyObject?
     var provider:AnyObject?
-    
-    
-    var trash:String = ""
-    
+    var cookie:String?
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-     println("~~~~~~~~~~~~~~~~~~~~~~~~~viewcontroller v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
-    println("~~~~~~~~ \(self.trash)")
-    testID.text = self._id as String!
-    getDataFrom("http://54.86.116.203:3000/items", ret: { (result:Bool) -> (Void) in
+     self.userID.text = self._id as String!
+        getDataFrom("http://54.86.116.203:3000/items", ret: { (result:Bool) -> (Void) in
         println("buy button is:  \(result) ")
         dispatch_async(dispatch_get_main_queue()) {
-            
         }
-        
     })
-
-    //startConnection();
-    
   }
     
     
@@ -64,12 +53,12 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
                 let str = NSString(data: data, encoding: NSUTF8StringEncoding)
                 let items = Items(JSONDecoder(response.responseObject!))
                 for curr in items.items! {
-                    var user = User(email: "id")
+                    
+                    var user = User(email: "id",id: curr.user!._id!)
                     println("_id: \(curr._id), __v: \(curr.__v), price: \(curr.price), created: \(curr.created), title: \(curr.name), description: \(curr.description), category: category, user: \(user)")
-                    if(curr.price != nil){
-                        var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
+                                           var product = Product(_id: curr._id, __v: curr.__v, price: curr.price, created: curr.created, title: curr.name, description: curr.description, category: "category", user: curr.user!._id!)
                         self.products.append(product)
-                    }
+                    
                     
                     //   println(product.title)
                 }
@@ -80,31 +69,6 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
         })
     }
 
-    
-//  
-//  func getDataFrom(url: String){
-//    var request = HTTPTask()
-//    request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
-//      if response.responseObject != nil {
-//        
-//        println("Hello from GrabData from Server")
-//        let data = response.responseObject as NSData
-//        let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-//        let items = Items(JSONDecoder(response.responseObject!))
-//        for curr in items.items! {
-//          var user = User(email: "id")
-//          var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price?, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
-//          self.products.append(product)
-//          println(product.title)
-//          println("World from GrabData from Server")
-//        }
-//        
-//      }
-//      },failure: {(error: NSError) in
-//        println(" error \(error)")
-//    })
-//  }
-//
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -113,6 +77,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
    
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     println("PrepareForSegue run")
+   
 
     if (segue.identifier == "segueTest") {
       println("grabed data and now passing \(products)")
@@ -125,12 +90,36 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
         println("my products :)")
         var svc = segue.destinationViewController as MyProductsTableViewController
             svc.userId = self._id
+        svc.cookie = self.cookie
+            svc.userProducts = filterProductsForUser()
     }
+    if (segue.identifier == "GoFromMainToSell") {
+        println("my sell products :)")
+        var svc = segue.destinationViewController as SellController
+        svc.user = (self._id as String!)
+        svc.cookie = self.cookie
+       
+    }
+
+        
     else {
       println("PrepareForSegue run, else statement")
     }
     
   }
+    
+    func filterProductsForUser() -> [Product] {
+        var filteredProducts: [Product] = []
+      //  println("prrrrooodd \(self._id as String!)")
+        for product in products {
+            println("product is \(product.user) and curr id \(self._id as String!)")
+            if(product.user == self._id as String!){
+                filteredProducts.append(product)
+            }
+        }
+        println("from control \(filteredProducts)")
+        return filteredProducts
+    }
    
   func startConnection(){
     
@@ -144,7 +133,6 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
       var newdata : NSArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
       
       var name: String? = newdata[0].valueForKey("name") as? NSString
-//      println(name)
     });
     task.resume()
   }
@@ -157,34 +145,6 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     // throwing an error on the line below (can't figure out where the error message is)
     var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
     println(jsonResult)
-  }
-  
-//  func connectToThanhsServer(){
-//    println("in 1")
-//    let url = NSURL(string: "")
-//    let theRequest = NSURLRequest(URL: url!)
-//    
-//    NSURLConnection.sendAsynchronousRequest(theRequest, queue: nil, completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-//      if data.length > 0 && error == nil {
-//        let response : AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil)
-//        println(response)
-//      }
-//    })
-//    
-//  }
-//  
-
-//    @IBAction func viewMyProductsBtnClicked(sender: AnyObject) {
-//   btn }
-  
-  func setupFirebase() {
-    // *** STEP 1: SETUP FIREBASE
-    //    myRootRef = Firebase(url:"https://gtbarter.firebaseio.com/")
-    // *** STEP 2: RECEIVE MESSAGES FROM FIREBASE
-    //    myRootRef.observeEventType(.Value, withBlock: {
-    //      snapshot in
-    //      println("\(snapshot.name) -> \(snapshot.value)")
-    //    })
   }
   
   func loadUsers(input: String) -> [User] {

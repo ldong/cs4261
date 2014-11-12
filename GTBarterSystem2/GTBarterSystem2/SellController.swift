@@ -18,12 +18,14 @@ class SellController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var categoryPicker: UIPickerView!
     var elements:Array<String>?
+    var user:String = ""
+    var cookie: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryPicker.delegate = self
 //        categoryPicker.dataSource = self
-        
+            println("in sell controller, user  \(user)")
             elements = ["Electronics","Fashion","Entertainment","Sporting Goods","Motors","Home and Kitchen","Other"]
        
         // Do any additional setup after loading the view.
@@ -54,6 +56,7 @@ class SellController: UIViewController, UIPickerViewDelegate {
   @IBAction func SellSwipe(sender: AnyObject) {
     println("Swiped from sell to main")
     let mainView = self.storyboard?.instantiateViewControllerWithIdentifier("mainController") as ViewController
+    mainView._id = user
     self.navigationController?.pushViewController(mainView, animated: true)
   }
     @IBAction func postBtnClick(sender: AnyObject) {
@@ -82,6 +85,16 @@ class SellController: UIViewController, UIPickerViewDelegate {
         
         self.presentViewController(secondViewController, animated: true, completion: nil)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "goBackToMainFromSell") {
+            println("my products :)")
+            var svc = segue.destinationViewController as ViewController
+            println("goinggggg back")
+            svc._id = self.user
+        }
+
     }
     
     

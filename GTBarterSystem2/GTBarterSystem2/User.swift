@@ -11,10 +11,13 @@ import Foundation
 class User {
 
   let email: String
+    var id:String
+    
   lazy var products : [String: Product] = [String: Product]()
   
-  init(email: String) {
+    init(email: String, id:String) {
     self.email = email
+    self.id = id
   }
 
   func addProduct(p: Product) -> [String:Product] {

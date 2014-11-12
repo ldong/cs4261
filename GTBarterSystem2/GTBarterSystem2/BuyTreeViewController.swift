@@ -27,35 +27,6 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-    
-      
-
-    
-    
-    
-//    func getDataFrom(url: String){
-//        var request = HTTPTask()
-//        request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
-//            if response.responseObject != nil {
-//                
-//                let data = response.responseObject as NSData
-//                let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-//                let items = Items(JSONDecoder(response.responseObject!))
-//                for curr in items.items! {
-//                    var user = User(email: "id")
-//                    var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
-//                    self.products.append(product)
-//                    println(product.title)
-//                }
-//                
-//            }
-//            },failure: {(error: NSError) in
-//                println(" error \(error)")
-//        })
-//    }
-
-    
-  
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if tableView == self.searchDisplayController!.searchResultsTableView {

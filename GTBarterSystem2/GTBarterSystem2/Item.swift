@@ -11,24 +11,37 @@ import JSONJoy
 
 
 struct Item: JSONJoy{
-  var _id: String?
-  var __v: Int?
-  var price: Double?
-  var description: String?
-  var created: String?
-  var name: String?
-  var user: StructUser?
-  init() {
+  var _id: String = "nil "
+  var __v: Int = 0
+  var price: Double = 0
+  var description: String = "nil "
+  var created: String = "nil "
+  var name: String = "nil "
+  var user: StructUser!
+
+    init() {
   }
   init(_ decoder: JSONDecoder) {
     println("===decoder from Item============")
-    _id = decoder["_id"].string
-    __v = decoder["__v"].integer
-    price = decoder["price"].double
-    description = decoder["description"].string
-    created = decoder["description"].string
-    name = decoder["description"].string
+ 
+    _id = decoder["_id"].string!
+    
+    __v = decoder["__v"].integer!
+    
+    price = decoder["price"].double!
+
+    
+    description = decoder["description"].string!
+  
+    created = decoder["description"].string!
+    
+  
+    name = decoder["description"].string!
+    
+    if var u = StructUser(decoder["user"])._id{
     user = StructUser(decoder["user"])
+    }
+    
   }
   
 }

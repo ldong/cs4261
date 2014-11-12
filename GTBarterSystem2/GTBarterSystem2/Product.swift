@@ -10,15 +10,15 @@ import Foundation
 
 class Product {
   
-  var _id: String
-  var __v: Int
-  var price: Double
-  var description: String
-  var created: String
-  var title: String
-  var user: User
-  var name: String
-  var category: String
+  var _id: String!
+  var __v: Int!
+  var price: Double!
+  var description: String!
+  var created: String!
+  var title: String!
+  var user: String!
+  var name: String!
+  var category: String!
   
   init(title: String, price:Double, description: String){
     self.title = title
@@ -29,12 +29,12 @@ class Product {
     self.__v = 1
     self.category = " cat 1 "
     self.created = " created "
-    var use = User(email: "email")
-    self.user = use
+    var use = User(email: "email", id: "no")
+    self.user = "not valid"
   }
   
   
-  init(_id:String, __v:Int, price:Double, created:String, title:String, description: String, category:String, user:User) {
+  init(_id:String, __v:Int, price:Double, created:String, title:String, description: String, category:String, user:String) {
     self.title = title
     self.price = price
     self.description = description

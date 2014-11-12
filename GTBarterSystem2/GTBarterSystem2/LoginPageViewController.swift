@@ -24,6 +24,7 @@ class LoginPageViewController: UIViewController {
     var firstName:AnyObject?
     var lastName:AnyObject?
     var provider:AnyObject?
+    var cookie: String?
     
     
     var proceed: Bool = false
@@ -51,6 +52,11 @@ class LoginPageViewController: UIViewController {
             if response.responseObject != nil {
                 finished(true)
                 self.proceed = true
+                var cookieHeader = response.headers!["Set-Cookie"]
+                var cookieSets1 = cookieHeader!.componentsSeparatedByString(";")
+                var cookieSets2 = cookieSets1[0].componentsSeparatedByString("=")
+                self.cookie = cookieSets2[1]
+                println("cookie is \(self.cookie!)")
                 println("Hello from getting cookies from Server")
                 var error: NSError?
                 let jsonData: NSData = response.responseObject as NSData
@@ -110,7 +116,7 @@ class LoginPageViewController: UIViewController {
             svc.displayName = self.displayName
             svc.firstName = self.firstName
             svc.lastName = self.lastName
-            svc.trash = "this is passed"
+            svc.cookie = self.cookie
         } else {
             println("PrepareForSegue run, else statement")
         }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD05A5DB1A0ED902004C81B2 /* btn_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */; };
 		AD2FC5ED1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2FC5EC1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift */; };
+		AD32C3C71A13D5EF00EF06DA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32C3C61A13D5EF00EF06DA /* CustomTableViewCell.swift */; };
 		AD713EA71A0294BB0046B257 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD713EA61A0294BB0046B257 /* LoginPageViewController.swift */; };
 		B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55CC43419E1ACB400F25C56 /* AppDelegate.swift */; };
 		B55CC43719E1ACB400F25C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55CC43619E1ACB400F25C56 /* ViewController.swift */; };
@@ -103,6 +104,7 @@
 /* Begin PBXFileReference section */
 		AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = btn_background.jpeg; sourceTree = "<group>"; };
 		AD2FC5EC1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewController.swift; sourceTree = "<group>"; };
+		AD32C3C61A13D5EF00EF06DA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		AD713EA61A0294BB0046B257 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		B55CC42F19E1ACB400F25C56 /* GTBarterSystem2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTBarterSystem2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B55CC43319E1ACB400F25C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				B5DAA53819F582C400FA9119 /* Item.swift */,
 				B5DAA54319F5869700FA9119 /* Items.swift */,
 				AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */,
+				AD32C3C61A13D5EF00EF06DA /* CustomTableViewCell.swift */,
 			);
 			path = GTBarterSystem2;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */,
 				B582420E19E1C19A00B3E447 /* User.swift in Sources */,
 				B5DAA54619F586BC00FA9119 /* UserStruct.swift in Sources */,
+				AD32C3C71A13D5EF00EF06DA /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
