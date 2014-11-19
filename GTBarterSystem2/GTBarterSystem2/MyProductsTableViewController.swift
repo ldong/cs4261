@@ -69,7 +69,7 @@ class MyProductsTableViewController: UITableViewController {
             println("edittttinnggg")
             var cell: CustomTableViewCell = tableView.cellForRowAtIndexPath(indexPath) as CustomTableViewCell
             self.userProducts.removeAtIndex(indexPath.row)
-            self.deleteItemFromServer("http://54.86.116.203:3000/items/:", itemID: cell.productId.text!, ret: { (result:Bool) -> (Void) in
+            self.deleteItemFromServer("http://54.86.116.203:3000/items/", itemID: cell.productId.text!, ret: { (result:Bool) -> (Void) in
                 println("buy button is:  \(result) ")
                 dispatch_async(dispatch_get_main_queue()) {
                     

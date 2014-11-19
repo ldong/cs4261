@@ -42,7 +42,7 @@ class LoginPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func connectToServerAndGetCookie(username: String, password: String, finished:((Bool) -> Void)) -> Void {
+    func connectToServerAndGetCookie(username: String, password: String, finished:((NSDictionary?) -> Void)) -> Void {
         var url = "http://54.86.116.203:3000/auth/signin"
         var request = HTTPTask()
         var parameters = ["username": username, "password": password]
@@ -50,64 +50,60 @@ class LoginPageViewController: UIViewController {
         request.POST(url, parameters: parameters, success: {
             (response: HTTPResponse) in
             if response.responseObject != nil {
-                finished(true)
-                self.proceed = true
+                //finished(true)
+              //  self.proceed = true
                 var cookieHeader = response.headers!["Set-Cookie"]
-                var cookieSets1 = cookieHeader!.componentsSeparatedByString(";")
-                var cookieSets2 = cookieSets1[0].componentsSeparatedByString("=")
-                self.cookie = cookieSets2[1]
-                println("cookie is \(self.cookie!)")
+              //  var cookieSets1 = cookieHeader!.componentsSeparatedByString(";")
+              //  var cookieSets2 = cookieSets1[0].componentsSeparatedByString("=")
+               // self.cookie = cookieSets2[1]
+               // println("cookie is \(self.cookie!)")
                 println("Hello from getting cookies from Server")
                 var error: NSError?
                 let jsonData: NSData = response.responseObject as NSData
                 
                 let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
                 
+                finished(jsonDict)
                 
                 //we can just grab the the ID or whatever we need to be passed to next screen.
-                self.__v = jsonDict["__v"];
-                self._id = jsonDict["_id"];
-                self.created = jsonDict["created"];
-                self.displayName = jsonDict["displayName"];
-                self.email = jsonDict["email"];
-                self.firstName = jsonDict["firstName"];
-                self.lastName = jsonDict["lastName"];
                 
                 /*
                 println("v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
                 */
             }
             },failure: {(error: NSError) in
-                finished(false)
+                finished(nil)
                 println(" error \(error)")
         })
     }
     
     
     @IBAction func signInBtnClick(sender: AnyObject) {
-        if(tfUserId.text ==  "" || tfPassword.text == ""){
-            println("failed login user id : \(tfUserId.text)  and password \(tfPassword.text))")
-        }
-        else{
-            var result: Bool = false
-            connectToServerAndGetCookie(tfUserId.text, password: tfPassword.text, finished: { (result:Bool) -> Void in
-                println("result is: \(result)")
-                if result {
+            var result: NSDictionary?
+            connectToServerAndGetCookie(tfUserId.text, password: tfPassword.text, finished: { (jsonDict:NSDictionary?) -> Void in
+                println("result is: \(jsonDict)")
+                if (jsonDict? != nil) {
                     println("You signed in")
+                    self.__v = jsonDict!["__v"];
+                    self._id = jsonDict!["_id"];
+                    self.created = jsonDict!["created"];
+                    self.displayName = jsonDict!["displayName"];
+                    self.email = jsonDict!["email"];
+                    self.firstName = jsonDict!["firstName"];
+                    self.lastName = jsonDict!["lastName"];
+                    
                     dispatch_async(dispatch_get_main_queue()) {
-                        // self.performSegueWithIdentifier("toView2", sender: self)
                         self.performSegueWithIdentifier("loginToViewController", sender: self)
                     }
                 } else {
                     println("You are not signed in")
                 }
             })
-        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         println("got into segue fo buy")
-        if (segue.identifier == "loginToViewController" && self.proceed == true) {
+        if (segue.identifier == "loginToViewController") {
             println("segue buy")
             var svc = segue.destinationViewController as ViewController
             svc.__v = self.__v
