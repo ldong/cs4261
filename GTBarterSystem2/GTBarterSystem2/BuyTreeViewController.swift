@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftHTTP
+import JSONJoy
 
 class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
   
@@ -14,68 +16,45 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
   var products : [Product] = []
   var filteredProducts = [Product]()
   
-  func loadData() {
-    var p : Product?
-    var ref = Firebase(url:"https://gtbarter.firebaseio.com/users/0/ldong36/products")
-    ref.observeEventType(.Value, withBlock: {
-      snapshot in
-      for index in 0..<snapshot.value.count {
-        var title = snapshot.value[index]!["title"]! as String
-        var category = snapshot.value[index]!["category"]!
-        var price = snapshot.value[index]!["price"]! as Int
-        var description = snapshot.value[index]!["description"]! as String
-        var timestamp = snapshot.value[index]!["timestamp"]!
-        p = Product(title: title, price: price, description: description)
-        //        println(p!.title)
-        self.products.append(p!)
-      }
-    })
-  }
-
-  override func viewDidLoad() {
+   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
-    //      loadData()
-    
-    // Do this
-    var p : Product?
-    var ref = Firebase(url:"https://gtbarter.firebaseio.com/users/0/ldong36/products")
-    ref.observeEventType(.Value, withBlock: {
-      snapshot in
-      for index in 0..<snapshot.value.count {
-        var title = snapshot.value[index]!["title"]! as String
-        var category = snapshot.value[index]!["category"]!
-        var price = snapshot.value[index]!["price"]! as Int
-        var description = snapshot.value[index]!["description"]! as String
-        var timestamp = snapshot.value[index]!["timestamp"]!
-        p = Product(title: title, price: price, description: description)
-                println(p!.title)
-        self.products.append(p!)
-      }
+    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        self.tableView.reloadData()
     })
-
-    // wait until its done do this
-    self.products += [
-      Product(title:"Chocolate", price: 11, description: "i"),
-      Product(title:"Candy", price: 12, description: "h"),
-      Product(title:"Break", price: 13, description: "g"),
-      Product(title:"Apple", price: 14, description: "f"),
-      Product(title:"Computer", price: 15, description: "e"),
-      Product(title:"Laptop", price: 16, description: "d"),
-      Product(title:"Cup", price: 17, description: "c"),
-      Product(title:"Table", price: 18, description: "b"),
-      Product(title:"Chair", price: 19, description: "a")
-    ]
-
-    for index in 0..<self.products.count {
-      println(self.products[index].title)
     }
-  }
-  
+    
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+    
+      
+
+    
+    
+    
+//    func getDataFrom(url: String){
+//        var request = HTTPTask()
+//        request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
+//            if response.responseObject != nil {
+//                
+//                let data = response.responseObject as NSData
+//                let str = NSString(data: data, encoding: NSUTF8StringEncoding)
+//                let items = Items(JSONDecoder(response.responseObject!))
+//                for curr in items.items! {
+//                    var user = User(email: "id")
+//                    var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
+//                    self.products.append(product)
+//                    println(product.title)
+//                }
+//                
+//            }
+//            },failure: {(error: NSError) in
+//                println(" error \(error)")
+//        })
+//    }
+
+    
   
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,6 +79,8 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
     
     // Configure the cell
     cell.textLabel!.text = product.title
+    println(product.title)
+//    println(cell)
     cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     
     return cell
@@ -143,16 +124,20 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
         let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
         let destinationTitle = self.filteredProducts[indexPath.row].title
         productDetailViewController.title = destinationTitle
+        productDetailViewController.productPriceText = String(self.products[indexPath.row].title)
+        productDetailViewController.productTitleText = self.products[indexPath.row].title
+        productDetailViewController.productDescriptionText = self.products[indexPath.row].description
       } else {
         let indexPath = self.tableView.indexPathForSelectedRow()!
         let destinationTitle = self.products[indexPath.row].title
         productDetailViewController.title = destinationTitle
+        productDetailViewController.productPriceText = String(self.products[indexPath.row].title)
+        productDetailViewController.productTitleText = self.products[indexPath.row].title
+        productDetailViewController.productDescriptionText = self.products[indexPath.row].description
       }
       
-      let indexPath = self.tableView.indexPathForSelectedRow()!
-      productDetailViewController.productPriceText = String(self.products[indexPath.row].price)
-      productDetailViewController.productTitleText = self.products[indexPath.row].title
-      productDetailViewController.productDescriptionText = self.products[indexPath.row].description
+     
+     
     }
   }
 

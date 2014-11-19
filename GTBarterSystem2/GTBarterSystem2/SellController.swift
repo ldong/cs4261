@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftHTTP
+import JSONJoy
 
 class SellController: UIViewController, UIPickerViewDelegate {
 
@@ -22,7 +24,7 @@ class SellController: UIViewController, UIPickerViewDelegate {
         categoryPicker.delegate = self
 //        categoryPicker.dataSource = self
         
-            elements = ["One","Two","Three","Five","Six","Seven","Eight","Nine","Ten"]
+            elements = ["Electronics","Fashion","Entertainment","Sporting Goods","Motors","Home and Kitchen","Other"]
        
         // Do any additional setup after loading the view.
     }
@@ -55,9 +57,53 @@ class SellController: UIViewController, UIPickerViewDelegate {
     self.navigationController?.pushViewController(mainView, animated: true)
   }
     @IBAction func postBtnClick(sender: AnyObject) {
-      var test =  testPrice(priceText.text)
-        println(test)
+      var testPriceValid =  testPrice(priceText.text)
+        getDataFrom("http://54.86.116.203:3000/items", ret: { (result:Bool) -> (Void) in
+                println("sell button is:  \(result) ")
+            if(result && testPriceValid){
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("goBackToMainFromSell", sender: self)
+            }
+            }
+        })
+      
+        
+     //   var postedData = getDataFrom("http://54.86.116.203:3000/items", ret:(result:Bool) -> Void in {
+      //      println(ret)
+      //      })
+     //   if(postedData && test){
+     //       transition()
+      //  }
     }
+    
+    func transition() {
+        println("got into transition")
+        let secondViewController:MyProductsTableViewController = MyProductsTableViewController()
+        
+        self.presentViewController(secondViewController, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    func getDataFrom(url: String, ret: (Bool) -> (Void)) -> Void{
+        var request = HTTPTask()
+        println("\(descriptionText.text) \(titleText.text) \(priceText.text)")
+        var paramaters = ["description":descriptionText.text, "name": titleText.text, "price":priceText.text]
+        request.POST(url, parameters: paramaters, success: {(response: HTTPResponse) in
+            if response.responseObject != nil {
+               println("success")
+                ret(true)
+                
+            }
+            },failure: {(error: NSError) in
+                println(" error \(error)")
+                ret(false)
+        })
+        //return ret
+    }
+
     
     
     func testPrice(priceText:String) -> Bool {
