@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AD05A5DB1A0ED902004C81B2 /* btn_background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */; };
+		AD277A8F1A2651D900C98E1A /* JSONJoy.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F6696519F5741B008A6870 /* JSONJoy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AD277A901A2651DF00C98E1A /* SwiftHTTP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F6695519F56648008A6870 /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AD2FC5ED1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2FC5EC1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift */; };
 		AD713EA71A0294BB0046B257 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD713EA61A0294BB0046B257 /* LoginPageViewController.swift */; };
 		B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55CC43419E1ACB400F25C56 /* AppDelegate.swift */; };
@@ -99,6 +101,20 @@
 			remoteInfo = JSONJoyOSXTests;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD277A861A2651CC00C98E1A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AD277A901A2651DF00C98E1A /* SwiftHTTP.framework in CopyFiles */,
+				AD277A8F1A2651D900C98E1A /* JSONJoy.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = btn_background.jpeg; sourceTree = "<group>"; };
@@ -267,6 +283,7 @@
 				B55CC42B19E1ACB400F25C56 /* Sources */,
 				B55CC42C19E1ACB400F25C56 /* Frameworks */,
 				B55CC42D19E1ACB400F25C56 /* Resources */,
+				AD277A861A2651CC00C98E1A /* CopyFiles */,
 			);
 			buildRules = (
 			);

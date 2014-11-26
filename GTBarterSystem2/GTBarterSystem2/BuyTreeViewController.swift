@@ -78,7 +78,7 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
     }
     
     // Configure the cell
-    cell.textLabel!.text = product.title
+    cell.textLabel.text = product.title
     println(product.title)
 //    println(cell)
     cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator

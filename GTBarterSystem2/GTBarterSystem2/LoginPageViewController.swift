@@ -59,13 +59,13 @@ class LoginPageViewController: UIViewController {
                 
                 
                 //we can just grab the the ID or whatever we need to be passed to next screen.
-                self.__v = jsonDict["__v"];
-                self._id = jsonDict["_id"];
-                self.created = jsonDict["created"];
-                self.displayName = jsonDict["displayName"];
-                self.email = jsonDict["email"];
-                self.firstName = jsonDict["firstName"];
-                self.lastName = jsonDict["lastName"];
+//                self.__v = jsonDict["__v"];
+//                self._id = jsonDict["_id"];
+//                self.created = jsonDict["created"];
+//                self.displayName = jsonDict["displayName"];
+//                self.email = jsonDict["email"];
+//                self.firstName = jsonDict["firstName"];
+//                self.lastName = jsonDict["lastName"];
                 
                 /*
                 println("v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")

@@ -222,6 +222,7 @@
 				TargetAttributes = {
 					6B3E79B619D355CF006071F7 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 8Y97K5WJV8;
 					};
 					6B3E79C119D355CF006071F7 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -594,6 +595,7 @@
 				D958024219E6ED8E003C8218 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D958024619E6ED8E003C8218 /* Build configuration list for PBXNativeTarget "JSONJoyOSXTests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +604,7 @@
 				D958024419E6ED8E003C8218 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

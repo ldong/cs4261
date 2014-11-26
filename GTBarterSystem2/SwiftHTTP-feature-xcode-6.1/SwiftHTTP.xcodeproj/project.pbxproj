@@ -234,6 +234,7 @@
 				TargetAttributes = {
 					6BFD901519C8D8B500DD99B6 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 8Y97K5WJV8;
 					};
 					6BFD902019C8D8B500DD99B6 = {
 						CreatedOnToolsVersion = 6.0;
@@ -616,6 +617,7 @@
 				D958026D19E6EEEB003C8218 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D958027119E6EEEB003C8218 /* Build configuration list for PBXNativeTarget "SwiftHTTPOSXTests" */ = {
 			isa = XCConfigurationList;
@@ -624,6 +626,7 @@
 				D958026F19E6EEEB003C8218 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
