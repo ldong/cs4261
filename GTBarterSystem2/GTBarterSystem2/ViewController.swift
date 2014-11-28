@@ -25,7 +25,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     @IBOutlet var testID: UILabel!
     
     var __v:AnyObject?
-    var _id: AnyObject?
+    var _id: AnyObject!
     var created:AnyObject?
     var displayName:AnyObject?
     var email:AnyObject?
@@ -39,8 +39,9 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-     println("~~~~~~~~~~~~~~~~~~~~~~~~~viewcontroller v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
-    println("~~~~~~~~ \(self.trash)")
+//     println("~~~~~~~~~~~~~~~~~~~~~~~~~viewcontroller v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
+//    println("~~~~~~~~ \(self.trash)")
+    println("main controller id \(self._id)")
     testID.text = self._id as String!
     getDataFrom("http://54.86.116.203:3000/items", ret: { (result:Bool) -> (Void) in
         println("buy button is:  \(result) ")
@@ -65,7 +66,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
                 let items = Items(JSONDecoder(response.responseObject!))
                 for curr in items.items! {
                     var user = User(email: "id")
-                    println("_id: \(curr._id), __v: \(curr.__v), price: \(curr.price), created: \(curr.created), title: \(curr.name), description: \(curr.description), category: category, user: \(user)")
+//                    println("_id: \(curr._id), __v: \(curr.__v), price: \(curr.price), created: \(curr.created), title: \(curr.name), description: \(curr.description), category: category, user: \(user)")
                     if(curr.price != nil){
                         var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
                         self.products.append(product)

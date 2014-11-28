@@ -84,7 +84,9 @@ class SellController: UIViewController, UIPickerViewDelegate {
         
     }
     
-    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
+        self.view.endEditing(true)
+    }
     
     
     func getDataFrom(url: String, ret: (Bool) -> (Void)) -> Void{

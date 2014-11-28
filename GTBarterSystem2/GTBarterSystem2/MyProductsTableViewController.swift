@@ -10,7 +10,7 @@ import UIKit
 
 class MyProductsTableViewController: UITableViewController {
 
-    var userId:AnyObject?
+    var userId:AnyObject!
     
     
     override func viewDidLoad() {

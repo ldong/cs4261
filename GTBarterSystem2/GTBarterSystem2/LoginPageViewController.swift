@@ -17,7 +17,7 @@ class LoginPageViewController: UIViewController {
     @IBOutlet weak var tfPassword: UITextField!
     
     var __v:AnyObject?
-    var _id:AnyObject?
+    var _id:AnyObject!
     var created:AnyObject?
     var displayName:AnyObject?
     var email:AnyObject?
@@ -41,7 +41,7 @@ class LoginPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func connectToServerAndGetCookie(username: String, password: String, finished:((Bool) -> Void)) -> Void {
+    func connectToServerAndGetCookie(username: String, password: String, finished:((String) -> Void)) -> Void {
         var url = "http://54.86.116.203:3000/auth/signin"
         var request = HTTPTask()
         var parameters = ["username": username, "password": password]
@@ -49,7 +49,7 @@ class LoginPageViewController: UIViewController {
         request.POST(url, parameters: parameters, success: {
             (response: HTTPResponse) in
             if response.responseObject != nil {
-                finished(true)
+                //finished(true)
                 self.proceed = true
                 println("Hello from getting cookies from Server")
                 var error: NSError?
@@ -60,19 +60,20 @@ class LoginPageViewController: UIViewController {
                 
                 //we can just grab the the ID or whatever we need to be passed to next screen.
 //                self.__v = jsonDict["__v"];
-//                self._id = jsonDict["_id"];
+                self._id = jsonDict["_id"];
+                finished(self._id as String)
 //                self.created = jsonDict["created"];
 //                self.displayName = jsonDict["displayName"];
 //                self.email = jsonDict["email"];
 //                self.firstName = jsonDict["firstName"];
 //                self.lastName = jsonDict["lastName"];
                 
-                /*
-                println("v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
-                */
+                println("id \(self._id)")
+//                println("v: \(self.__v) id: \(self._id) created: \(self.created) displayname \(self.displayName) email \(self.email) firstname \(self.firstName) lastname \(self.lastName)")
+//                
             }
             },failure: {(error: NSError) in
-                finished(false)
+                finished(" ")
                 println(" error \(error)")
         })
     }
@@ -84,10 +85,8 @@ class LoginPageViewController: UIViewController {
         }
         else{
             var result: Bool = false
-            connectToServerAndGetCookie(tfUserId.text, password: tfPassword.text, finished: { (result:Bool) -> Void in
-                println("result is: \(result)")
-                if result {
-                    println("You signed in")
+            connectToServerAndGetCookie(tfUserId.text, password: tfPassword.text, finished: { (result:String) -> Void in
+                if result != " " {
                     dispatch_async(dispatch_get_main_queue()) {
                         // self.performSegueWithIdentifier("toView2", sender: self)
                         self.performSegueWithIdentifier("loginToViewController", sender: self)
@@ -106,11 +105,11 @@ class LoginPageViewController: UIViewController {
             var svc = segue.destinationViewController as ViewController
             svc.__v = self.__v
             svc._id = self._id
+            println("id \(self._id)")
             svc.created = self.created
             svc.displayName = self.displayName
             svc.firstName = self.firstName
             svc.lastName = self.lastName
-            svc.trash = "this is passed"
         } else {
             println("PrepareForSegue run, else statement")
         }
