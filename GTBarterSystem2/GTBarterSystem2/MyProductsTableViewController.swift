@@ -19,12 +19,12 @@ class MyProductsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         println("user id \(self.userId)")
-        println(userProducts)
+     //   println(userProducts)
         // Uncomment the following line to preserve selection between presentations
-        //    self.clearsSelectionOnViewWillAppear = false
+            self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,10 +49,14 @@ class MyProductsTableViewController: UITableViewController {
         println(product.title)
         //    println(cell)
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.productTitle.text = product.title
-        cell.productId.text = product._id
+        //cell.textLabel.text = "working"
+       cell.productTitle.text = product.title
+        println(product.price)
+        var priceText = String(format: "%d", product.price )
+        cell.productId.text = ("$ \(priceText)")
         
         return cell
+        
     }
     
     // Override to support conditional editing of the table view.
@@ -82,7 +86,7 @@ class MyProductsTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
-    
+
     
     func deleteItemFromServer(url: String, itemID:String, ret: (Bool) -> (Void)) -> Void{
         var request = HTTPTask()
@@ -97,7 +101,7 @@ class MyProductsTableViewController: UITableViewController {
             }
             },failure: {(error: NSError) in
                 println(" error \(error)")
-        })
+       })
     }
     
     

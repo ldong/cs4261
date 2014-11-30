@@ -11,12 +11,13 @@ import JSONJoy
 
 struct StructUser : JSONJoy{
   var _id: String?
-  var displayName: String?
+  var email: String?
   init(){
   }
   
   init(_ decoder: JSONDecoder) {
     _id = decoder["_id"].string
-    displayName = decoder["displayName"].string
+    email = decoder["displayName"].string
+    println(email)
   }
 }

@@ -122,17 +122,22 @@ class BuyTreeViewController: UITableViewController, UISearchBarDelegate, UISearc
       
       if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
         let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-        let destinationTitle = self.filteredProducts[indexPath.row].title
+        let destinationTitle = self.filteredProducts[indexPath.row].name
         productDetailViewController.title = destinationTitle
-        productDetailViewController.productPriceText = String(self.products[indexPath.row].title)
-        productDetailViewController.productTitleText = self.products[indexPath.row].title
+        productDetailViewController.productPriceText = String(self.products[indexPath.row].price)
+        println("oneeeeeee \(self.products[indexPath.row].name)")
+
+        productDetailViewController.productTitleText = self.products[indexPath.row].name
         productDetailViewController.productDescriptionText = self.products[indexPath.row].description
       } else {
         let indexPath = self.tableView.indexPathForSelectedRow()!
         let destinationTitle = self.products[indexPath.row].title
         productDetailViewController.title = destinationTitle
-        productDetailViewController.productPriceText = String(self.products[indexPath.row].title)
-        productDetailViewController.productTitleText = self.products[indexPath.row].title
+        
+        println("oneeeeeee \(self.products[indexPath.row].name)")
+        
+        productDetailViewController.productPriceText = String(self.products[indexPath.row].price)
+        productDetailViewController.productTitleText = self.products[indexPath.row].name
         productDetailViewController.productDescriptionText = self.products[indexPath.row].description
       }
       

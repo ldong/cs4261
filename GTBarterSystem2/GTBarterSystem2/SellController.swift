@@ -18,6 +18,7 @@ class SellController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var categoryPicker: UIPickerView!
     var elements:Array<String>?
+    var category: String = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,10 @@ class SellController: UIViewController, UIPickerViewDelegate {
         return elements![row]
     }
     
-    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        category = elements![row]
+        println(category)
+    }
   
   @IBAction func SellSwipe(sender: AnyObject) {
     println("Swiped from sell to main")
@@ -92,7 +96,7 @@ class SellController: UIViewController, UIPickerViewDelegate {
     func getDataFrom(url: String, ret: (Bool) -> (Void)) -> Void{
         var request = HTTPTask()
         println("\(descriptionText.text) \(titleText.text) \(priceText.text)")
-        var paramaters = ["description":descriptionText.text, "name": titleText.text, "price":priceText.text]
+        var paramaters = ["description":descriptionText.text, "name": titleText.text, "price":priceText.text, "category": self.category]
         request.POST(url, parameters: paramaters, success: {(response: HTTPResponse) in
             if response.responseObject != nil {
                println("success")

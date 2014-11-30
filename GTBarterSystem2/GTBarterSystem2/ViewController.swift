@@ -32,7 +32,7 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     var firstName:AnyObject?
     var lastName:AnyObject?
     var provider:AnyObject?
-    
+    var category: AnyObject?
     
     var trash:String = ""
     
@@ -65,10 +65,12 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
                 let str = NSString(data: data, encoding: NSUTF8StringEncoding)
                 let items = Items(JSONDecoder(response.responseObject!))
                 for curr in items.items! {
-                    var user = User(email: "id")
+                    var user = User(email: "id", _id: "my id")
 //                    println("_id: \(curr._id), __v: \(curr.__v), price: \(curr.price), created: \(curr.created), title: \(curr.name), description: \(curr.description), category: category, user: \(user)")
                     if(curr.price != nil){
-                        var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
+                        println("name is \(curr) ")
+                       // println("description is \(curr.description!) ")
+                        var product = Product(_id: curr._id!, __v: curr.__v!,price: curr.price!, created: curr.created!, title: curr.name!, description: curr.description!, category: curr.category!, user: user)
                         self.products.append(product)
                     }
                     
@@ -82,30 +84,6 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     }
 
     
-//  
-//  func getDataFrom(url: String){
-//    var request = HTTPTask()
-//    request.GET(url, parameters: nil, success: {(response: HTTPResponse) in
-//      if response.responseObject != nil {
-//        
-//        println("Hello from GrabData from Server")
-//        let data = response.responseObject as NSData
-//        let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-//        let items = Items(JSONDecoder(response.responseObject!))
-//        for curr in items.items! {
-//          var user = User(email: "id")
-//          var product = Product(_id: curr._id!, __v: curr.__v!, price: curr.price?, created: curr.created!, title: curr.name!, description: curr.description!, category: "category", user: user)
-//          self.products.append(product)
-//          println(product.title)
-//          println("World from GrabData from Server")
-//        }
-//        
-//      }
-//      },failure: {(error: NSError) in
-//        println(" error \(error)")
-//    })
-//  }
-//
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -126,6 +104,8 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
         println("my products :)")
         var svc = segue.destinationViewController as MyProductsTableViewController
             svc.userId = self._id
+        println(products)
+        svc.userProducts = products
     }
     else {
       println("PrepareForSegue run, else statement")
@@ -159,24 +139,6 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
     println(jsonResult)
   }
-  
-//  func connectToThanhsServer(){
-//    println("in 1")
-//    let url = NSURL(string: "")
-//    let theRequest = NSURLRequest(URL: url!)
-//    
-//    NSURLConnection.sendAsynchronousRequest(theRequest, queue: nil, completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-//      if data.length > 0 && error == nil {
-//        let response : AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil)
-//        println(response)
-//      }
-//    })
-//    
-//  }
-//  
-
-//    @IBAction func viewMyProductsBtnClicked(sender: AnyObject) {
-//   btn }
   
   func setupFirebase() {
     // *** STEP 1: SETUP FIREBASE

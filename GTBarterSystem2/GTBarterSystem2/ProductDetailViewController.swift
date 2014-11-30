@@ -11,8 +11,8 @@ import UIKit
 class ProductDetailViewController: UIViewController {
 
   @IBOutlet weak var productDescription: UITextView!
-  @IBOutlet weak var productPrice: UITextField!
-  @IBOutlet weak var productTitle: UITextField!
+    @IBOutlet weak var productTitle: UILabel!
+    @IBOutlet weak var productPrice: UILabel!
   @IBOutlet weak var connectUserButton: UIButton!
   
   var productDescriptionText: String = ""
@@ -25,7 +25,8 @@ class ProductDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         productDescription.text = productDescriptionText
         productPrice.text = productPriceText
-        productTitle.text = productTitleText
+//        productTitle.text = productTitleText
+        
     }
 
     override func didReceiveMemoryWarning() {

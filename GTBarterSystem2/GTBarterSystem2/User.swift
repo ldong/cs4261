@@ -10,20 +10,11 @@ import Foundation
 
 class User {
 
-  let email: String
-  lazy var products : [String: Product] = [String: Product]()
+  var email: String
+    var _id:String
   
-  init(email: String) {
+    init(email: String, _id: String) {
     self.email = email
-  }
-
-  func addProduct(p: Product) -> [String:Product] {
-    products.updateValue(p, forKey: p.title)
-    return products
-  }
-  
-  func removeProduct(p: Product) -> [String:Product] {
-    products.removeValueForKey(p.title)
-    return products
+        self._id = _id
   }
 }

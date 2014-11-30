@@ -12,6 +12,7 @@
 		AD277A901A2651DF00C98E1A /* SwiftHTTP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F6695519F56648008A6870 /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AD2FC5ED1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2FC5EC1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift */; };
 		AD713EA71A0294BB0046B257 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD713EA61A0294BB0046B257 /* LoginPageViewController.swift */; };
+		AD9692C71A28020E00C448CF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9692C61A28020E00C448CF /* CustomTableViewCell.swift */; };
 		B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55CC43419E1ACB400F25C56 /* AppDelegate.swift */; };
 		B55CC43719E1ACB400F25C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55CC43619E1ACB400F25C56 /* ViewController.swift */; };
 		B55CC43A19E1ACB400F25C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55CC43819E1ACB400F25C56 /* Main.storyboard */; };
@@ -120,6 +121,7 @@
 		AD05A5DA1A0ED902004C81B2 /* btn_background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = btn_background.jpeg; sourceTree = "<group>"; };
 		AD2FC5EC1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewController.swift; sourceTree = "<group>"; };
 		AD713EA61A0294BB0046B257 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		AD9692C61A28020E00C448CF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		B55CC42F19E1ACB400F25C56 /* GTBarterSystem2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTBarterSystem2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B55CC43319E1ACB400F25C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B55CC43419E1ACB400F25C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				B55CC43419E1ACB400F25C56 /* AppDelegate.swift */,
 				B55CC43619E1ACB400F25C56 /* ViewController.swift */,
+				AD9692C61A28020E00C448CF /* CustomTableViewCell.swift */,
 				B582421319E1EDE800B3E447 /* SellController.swift */,
 				B55CC43819E1ACB400F25C56 /* Main.storyboard */,
 				AD2FC5EC1A0FE8A300F3D4E7 /* MyProductsTableViewController.swift */,
@@ -457,6 +460,7 @@
 				B55CC43519E1ACB400F25C56 /* AppDelegate.swift in Sources */,
 				B582420E19E1C19A00B3E447 /* User.swift in Sources */,
 				B5DAA54619F586BC00FA9119 /* UserStruct.swift in Sources */,
+				AD9692C71A28020E00C448CF /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

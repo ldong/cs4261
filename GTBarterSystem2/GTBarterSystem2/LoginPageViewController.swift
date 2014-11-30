@@ -24,7 +24,7 @@ class LoginPageViewController: UIViewController {
     var firstName:AnyObject?
     var lastName:AnyObject?
     var provider:AnyObject?
-    
+    var category:AnyObject?
     
     var proceed: Bool = false
     
@@ -62,6 +62,8 @@ class LoginPageViewController: UIViewController {
 //                self.__v = jsonDict["__v"];
                 self._id = jsonDict["_id"];
                 finished(self._id as String)
+                self.category = jsonDict["category"]
+                
 //                self.created = jsonDict["created"];
 //                self.displayName = jsonDict["displayName"];
 //                self.email = jsonDict["email"];
@@ -110,6 +112,7 @@ class LoginPageViewController: UIViewController {
             svc.displayName = self.displayName
             svc.firstName = self.firstName
             svc.lastName = self.lastName
+            svc.category = self.category
         } else {
             println("PrepareForSegue run, else statement")
         }

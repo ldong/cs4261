@@ -12,7 +12,7 @@ class Product {
   
   var _id: String
   var __v: Int
-  var price: Double
+  var price: Int
   var description: String
   var created: String
   var title: String
@@ -20,7 +20,7 @@ class Product {
   var name: String
   var category: String
   
-  init(title: String, price:Double, description: String){
+  init(title: String, price:Int, description: String){
     self.title = title
     self.price = price
     self.description = description
@@ -29,16 +29,16 @@ class Product {
     self.__v = 1
     self.category = " cat 1 "
     self.created = " created "
-    var use = User(email: "email")
+    var use = User(email: "email", _id: "id")
     self.user = use
   }
   
   
-  init(_id:String, __v:Int, price:Double, created:String, title:String, description: String, category:String, user:User) {
+  init(_id:String, __v:Int, price:Int, created:String, title:String, description: String, category:String, user:User) {
     self.title = title
     self.price = price
     self.description = description
-    self.category = "All"
+    self.category = category
     self.__v = __v
     self._id = _id
     self.created = created
